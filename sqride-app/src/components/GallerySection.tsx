@@ -1,12 +1,19 @@
-// src/components/GallerySection.tsx
 import React from 'react';
-import { Box, Typography, Grid, Card, CardMedia } from '@mui/material';
+import { Box, Typography, Grid, Card, CardMedia, CardContent } from '@mui/material';
 
-const galleryImages = [
-  'https://source.unsplash.com/400x300/?food1',
-  'https://source.unsplash.com/400x300/?food2',
-  'https://source.unsplash.com/400x300/?food3',
-  'https://source.unsplash.com/400x300/?food4',
+const galleryData = [
+  {
+    image: '/assets/second-menu/cheezius-heart.jpeg',
+    title: 'Delivering cheezy khushiyan',
+  },
+  {
+    image: '/assets/second-menu/cheezius-rider.jpeg',
+    title: 'Fastest Growing Brand of the Year',
+  },
+  {
+    image: '/assets/second-menu/local-flavour.jpeg',
+    title: 'Made with fresh, local ingredients and love',
+  },
 ];
 
 const GallerySection: React.FC = () => {
@@ -16,10 +23,21 @@ const GallerySection: React.FC = () => {
         Our Specials
       </Typography>
       <Grid container spacing={4} justifyContent="center">
-        {galleryImages.map((img, index) => (
+        {galleryData.map((item, index) => (
           <Grid item key={index} xs={12} sm={6} md={3}>
-            <Card>
-              <CardMedia component="img" height="200" image={img} alt={`Special ${index + 1}`} />
+            <Card elevation={3} sx={{ borderRadius: 2 }}>
+              <CardMedia
+                component="img"
+                height="350"
+                image={item.image}
+                alt={`Special ${index + 1}`}
+                sx={{ objectFit: 'cover' }}
+              />
+              <CardContent sx={{ backgroundColor: 'transparent' }}>
+                <Typography variant="body1" align="center" fontWeight={600}>
+                  {item.title}
+                </Typography>
+              </CardContent>
             </Card>
           </Grid>
         ))}
