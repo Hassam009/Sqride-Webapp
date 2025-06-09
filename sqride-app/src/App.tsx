@@ -4,7 +4,7 @@ import HeroSection from './components/HeroSection';
 import MenuSection from './components/MenuSection';
 import GallerySection from './components/GallerySection';
 import SecondGallerySection from './components/SecondGallerySection';
-
+import Footer from './components/Footer';
 const App: React.FC = () => {
   return (
     <>
@@ -13,6 +13,8 @@ const App: React.FC = () => {
       <MenuSection />
       <GallerySection />
       <SecondGallerySection />
+      {/* Footer component can be added here if needed */}
+      <Footer />
     </>
   );
 };
