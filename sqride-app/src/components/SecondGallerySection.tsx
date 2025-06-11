@@ -13,7 +13,8 @@ import {
   DialogContent,
   DialogActions,
   useMediaQuery,
-  useTheme
+  useTheme,
+  Container
 } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CloseIcon from '@mui/icons-material/Close';
@@ -122,23 +123,23 @@ const chefRecommendations: Dish[] = [
   {
     id: 4,
     img: 'https://source.unsplash.com/600x400/?gourmet-salad',
-  const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
+    title: 'Mediterranean Power Salad',
     description: 'Fresh salad with quinoa, feta, olives, and lemon dressing',
     price: '$14.99',
     details: 'A nutritious blend of organic quinoa, cherry tomatoes, cucumber, Kalamata olives, red onion, and feta cheese. Tossed in our homemade lemon-herb vinaigrette. Topped with toasted pine nuts and fresh parsley.',
-  const handleOpen = (dish: Dish) => {
-    setSelectedDish(dish);
-    setOpen(true);
-  };
+    prepTime: '10 mins',
+    calories: '320 cal',
+    tags: ['Salad', 'Vegetarian', 'Healthy']
+  }
 ];
 
 const SecondGallerySection: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [selectedDish, setSelectedDish] = useState<any>(null);
+  const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleOpen = (dish: any) => {
+  const handleOpen = (dish: Dish) => {
     setSelectedDish(dish);
     setOpen(true);
   };

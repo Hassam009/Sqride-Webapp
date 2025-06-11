@@ -7,15 +7,22 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Badge from '@mui/material/Badge';
 import CustomHamburger from './hamburger'; // Import your custom component
+import { useNavigate } from 'react-router-dom'; // Import React Router
 
 const Header: React.FC = () => {
+  const navigate = useNavigate();
+
   // Optional: Handle drawer toggle or menu click if needed
   const handleMenuClick = () => {
     console.log('Menu clicked');
   };
 
-  // Example cart items count - you can make this dynamic
   const cartItemsCount = 3;
+
+  // Handle login icon click
+  const handleLoginClick = () => {
+    navigate('/login'); // This will navigate to the login page
+  };
 
   return (
     <AppBar 
@@ -46,10 +53,10 @@ const Header: React.FC = () => {
         {/* Logo Image */}
         <Box
           component="img"
-          src="/assets/logo/sq-logo.png" // Adjust path as needed
+          src="/assets/logo/sq-logo.png"
           alt="Logo"
           sx={{
-            height: 40,  // Adjust height as needed
+            height: 40,
             cursor: 'pointer',
             mr: 2,
           }}
@@ -91,6 +98,7 @@ const Header: React.FC = () => {
 
           <IconButton 
             aria-label="login"
+            onClick={handleLoginClick} // Navigate on click
             sx={{
               backgroundColor: 'secondary.light',
               color: 'secondary.contrastText',
